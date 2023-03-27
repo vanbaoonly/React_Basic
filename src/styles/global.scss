@@ -12,3 +12,28 @@ body {
       monospace;
   }
   
+  .form{
+    font-size: 30px;
+    min-width: 500px;
+    border: 1px solid #fff;
+    padding: 20px;
+   
+   .form_gr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+   }
+   .form_gr input{
+    height: 40px;
+    min-width: 200px;
+     font-size: 20px;
+    padding: 0 10px;
+    outline: none;
+   }
+   .btn{
+    font-size: 20px;
+    padding: 5px 20px;
+    margin:20px 10px;
+   }
+  }
