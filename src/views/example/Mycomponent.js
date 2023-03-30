@@ -1,37 +1,48 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React from "react";
 import ChildMycomponent from "./ChildMycomponent";
+import AddMycomponent from "./AddMycomponent";
 class Mycomponent extends React.Component {
     /**
      * JSX : return block
      * React.Fragment : cho biết r
      */
 
+
     state = {
-        FirstName: "",
-        LastName: "",
-        Age: ""
+        object: [
+            {
+                id: 1, name: 'Name 1', job: 'chơi game ', salary: '300'
+            },
+            {
+                id: 2, name: 'Name 2', job: 'chơi game', salary: '1100'
+            },
+            {
+                id: 3, name: 'Name 3', job: 'chơi game ', salary: '300'
+            },
+            {
+                id: 4, name: 'Name 4', job: 'chơi game', salary: '1100'
+            },
+            {
+                id: 5, name: 'Name 5', job: 'chơi game ', salary: '300'
+            }
+        ]
     }
-    ChangeNameFirst = (event) => {
+    AddNewjob = (job) => {
+        // console.log('check', job)
         this.setState({
-            FirstName: event.target.value
+            object: [...this.state.object, job]
+            //  ...this.state.object là coppy data có ở trước đó, sau dấy phẩy được hiểu là push
+            // vào sau data vừ mới coppy
         })
-    }
-    ChangeNameLast = (event) => {
-        this.setState({
-            LastName: event.target.value
 
-        })
     }
-    ChangeNameAge = (event) => {
+    DeleteObjItem = (jobid) => {
+        let arr = this.state.object
+        arr = arr.filter(item => item.id !== jobid.id)
         this.setState({
-            Age: event.target.value
+            object: arr
         })
-    }
-    clickSubmit = (event) => {
-        // event.preventDefault(event)
-        console.log(" check input", this.state)
-
 
     }
 
@@ -39,30 +50,15 @@ class Mycomponent extends React.Component {
         // console.log('State', this.state)
         return (
             <>
-
-                <form className="form">
-                    <div className="form_gr">
-                        <label>First Name : </label>
-                        <input type="text" value={this.state.FirstName} placeholder="First Name"
-                            onChange={(event) => { this.ChangeNameFirst(event) }} />
-                    </div>
-                    <div className="form_gr">
-                        <label>Last Name : </label>
-                        <input type="text" value={this.state.LastName} placeholder="Last Name"
-                            onChange={(event) => { this.ChangeNameLast(event) }} />
-                    </div>
-                    <div className="form_gr">
-                        <label>Age: </label>
-                        <input type="text" value={this.state.Age} placeholder="Age "
-                            onChange={(event) => { this.ChangeNameAge(event) }} />
-                    </div>
-                    <div className="wrapper_btn">
-                        <input className="btn btn_login" type="submit" value="Submit" onClick={(event) => { this.clickSubmit(event) }} />
-                        <input className="btn btn_reset" type="reset" value="Reset" />
-                    </div>
-                </form>
-                <ChildMycomponent name={this.state.LastName + " " + this.state.FirstName} age={this.state.Age} />
-
+                {
+                    // console.log('1', ...this.state.object)
+                }
+                {/* khi chuyền function thì không cần () */}
+                <AddMycomponent addNewjob={this.AddNewjob} />
+                {/* chuyên data sang các phần tử con */}
+                <ChildMycomponent objectChild={this.state.object}
+                    DeleteObjItem={this.DeleteObjItem}
+                />
             </>
         )
     }
