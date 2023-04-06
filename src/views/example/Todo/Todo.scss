@@ -1,0 +1,49 @@
+// demo form todo list
+.wrapper {
+    padding: 20px;
+    max-width: 500px;
+
+    .app_todo {
+        input {
+            outline: none;
+            padding: 5px;
+        }
+        button {
+            padding: 5px;
+        }
+    }
+    .list_todo {
+        .todo_child {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-top: 10px;
+            padding-left: 10px;
+            box-shadow: 0px 0px 2px #fff;
+            cursor: default;
+            input {
+                outline: none;
+                width: 133px;
+                padding: 5px;
+            }
+            button {
+                background-color: transparent;
+                color: #fff;
+                border: none;
+                outline: none;
+                height: 38px;
+                width: 50px;
+                padding: 0px 5px;
+                cursor: pointer;
+
+                &:hover {
+                    color: rgb(26, 255, 0);
+                }
+                &:nth-child(2):hover {
+                    color: red;
+                }
+            }
+        }
+    }
+}

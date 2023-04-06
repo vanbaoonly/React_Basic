@@ -1,12 +1,12 @@
-import { type } from "@testing-library/user-event/dist/type";
+
 import React from "react";
-import ChildMycomponent from "./ChildMycomponent";
-import AddMycomponent from "./AddMycomponent";
+// import ChildMycomponent from "./ChildMycomponent";
+// import AddMycomponent from "./AddMycomponent";
+import TodoList from "./Todo/TodoList";
 class Mycomponent extends React.Component {
     /**
      * JSX : return block
-     * React.Fragment : cho biết r
-     */
+     * React.Fragment : cho biết r   */
 
 
     state = {
@@ -17,15 +17,7 @@ class Mycomponent extends React.Component {
             {
                 id: 2, name: 'Name 2', job: 'chơi game', salary: '1100'
             },
-            {
-                id: 3, name: 'Name 3', job: 'chơi game ', salary: '300'
-            },
-            {
-                id: 4, name: 'Name 4', job: 'chơi game', salary: '1100'
-            },
-            {
-                id: 5, name: 'Name 5', job: 'chơi game ', salary: '300'
-            }
+
         ]
     }
     AddNewjob = (job) => {
@@ -37,28 +29,31 @@ class Mycomponent extends React.Component {
         })
 
     }
-    DeleteObjItem = (jobid) => {
-        let arr = this.state.object
-        arr = arr.filter(item => item.id !== jobid.id)
-        this.setState({
-            object: arr
-        })
+    // DeleteObjItem = (jobid) => {
+    //     let arr = this.state.object
+    //     arr = arr.filter(item => item.id !== jobid.id)
+    //     this.setState({
+    //         object: arr
+    //     })
 
-    }
+    // }
+    // componentDidMount() {
+    //     console.log("run ComponentDidMount")
+    // }
+    // componentDidUpdate(prevProps, prevState) {
+    //     console.log('run componentDidUpdate : prev state ', prevState, 'current state ', this.state)
+    // }
 
     render() {
-        // console.log('State', this.state)
+
         return (
             <>
-                {
-                    // console.log('1', ...this.state.object)
-                }
+
                 {/* khi chuyền function thì không cần () */}
-                <AddMycomponent addNewjob={this.AddNewjob} />
+                {/* <AddMycomponent addNewjob={this.AddNewjob} /> */}
                 {/* chuyên data sang các phần tử con */}
-                <ChildMycomponent objectChild={this.state.object}
-                    DeleteObjItem={this.DeleteObjItem}
-                />
+                {/* <ChildMycomponent objectChild={this.state.object} DeleteObjItem={this.DeleteObjItem}/> */}
+                <TodoList />
             </>
         )
     }

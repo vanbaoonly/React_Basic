@@ -1,4 +1,5 @@
 import React from "react";
+import "./Demo.scss";
 class AddMycomponent extends React.Component {
 
     state = {
@@ -69,7 +70,7 @@ class AddMycomponent extends React.Component {
                     </div>
                     <div className="wrapper_btn">
                         <input className="btn btn_login" type="submit" value="Submit" onClick={(event) => { this.clickSubmit(event) }} />
-                        <input className="btn btn_reset" type="reset" value="Reset" />
+
                     </div>
                 </form>
             </>

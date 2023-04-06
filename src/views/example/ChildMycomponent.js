@@ -2,7 +2,7 @@ import React from "react";
 class ChildMycomponent extends React.Component {
 
     state = {
-        showjob: false
+        showjob: true
     }
     handleShowHide = () => {
         this.setState({
